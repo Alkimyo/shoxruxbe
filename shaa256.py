@@ -42,16 +42,15 @@ def search_data(user_input):
 # Streamlit interfeysi
 st.title("SHA-256 xeshlash va ma'lumot qidirish")
 
-# Ma'lumotlarni kiritish
-original_data = st.text_input("Siz yuborayotgan ma'lumot:")
-check_data = st.text_input("Do'stingiz qabul qilayotgan ma'lumot:")
-
-# Xeshlarni taqqoslash
-if st.button("Xeshlarni taqqoslash"):
-    calculate_hash(original_data, check_data)
-
 # Mamlakatni qidirish
 user_input = st.text_input("Iltimos, mamlakat nomini kiriting:")
-if st.button("Mamlakatni qidirish"):
+if user_input:
     result_message = search_data(user_input)
     st.text_area("Natija", result_message)
+
+    # Mamlakatni topganidan so'ng xeshlarni taqqoslash
+    original_data = st.text_input("Siz yuborayotgan ma'lumot:")
+    check_data = st.text_input("Do'stingiz qabul qilayotgan ma'lumot:")
+
+    if st.button("Xeshlarni taqqoslash"):
+        calculate_hash(original_data, check_data)
