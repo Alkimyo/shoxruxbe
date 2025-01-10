@@ -3,8 +3,8 @@ import tkinter as tk
 from tkinter import simpledialog, messagebox
 import hashlib
 
-# CSV faylini o'qish
-file_path = '/home/shohruh/Downloads/world_population.csv'
+
+file_path = 'world_population.csv'
 df = pd.read_csv(file_path)
 
 # SHA-256 hisoblash funksiyasi
