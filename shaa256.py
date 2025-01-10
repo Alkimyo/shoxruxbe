@@ -2,7 +2,7 @@ import pandas as pd
 import hashlib
 import streamlit as st
 
-# CSV faylini o'qish (GitHub yoki lokal fayl URL’idan o'qish mumkin)
+# CSV faylini o'qish
 file_path = 'world_population.csv'
 df = pd.read_csv(file_path)
 
@@ -48,8 +48,10 @@ if user_input:
     result_message = search_data(user_input)
     st.text_area("Natija", result_message)
 
-    # Mamlakatni topganidan so'ng xeshlarni taqqoslash
-    original_data = st.text_input("Siz yuborayotgan ma'lumot:")
+    # Mamlakatni topganidan so'ng, natijani avtomatik ravishda 'Siz yuborayotgan ma'lumot'ga kiritish
+    original_data = st.text_input("Siz yuborayotgan ma'lumot:", value=result_message)
+
+    # Tekshirish ma'lumotini olish
     check_data = st.text_input("Do'stingiz qabul qilayotgan ma'lumot:")
 
     if st.button("Xeshlarni taqqoslash"):
